@@ -28,6 +28,7 @@ body{
   display: grid;
   place-items: center;
   padding: 48px 24px;
+  justify-content: center;
 }
 
 .card{
@@ -184,7 +185,7 @@ body{
 .about-hero{
   font-weight: 700;
   font-size: clamp(36px, 6.2vw, 64px);
-  line-height: 1.08;
+  line-height: 0.9;
   margin: 16px 0 24px;
   letter-spacing: -0.003em;
 }
@@ -510,3 +511,8 @@ body{
 @media (min-width: 1200px) {
   .reflection { max-width: 860px; }
 }
+
+.reflection + .reflection {
+  margin-top: 18px;
+}
+
