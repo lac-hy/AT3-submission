@@ -464,49 +464,72 @@ body{
   .g4-featured{ transform: translateY(-28%); }
 }
 
-/* Fix: let the featured card rise above the strip without clipping */
 .gallery4 { 
-  overflow: visible;             /* was hidden */
-  padding-top: 64px;             /* keeps the same visual spacing */
+  overflow: visible;             
+  padding-top: 64px;             
 }
 
-/* Give the wrap extra headroom so the lifted card never hits the top edge */
+
 .g4-rail-wrap {
   height: calc(var(--g4-rail-h) + 240px);  
   margin-top: 96px;                        
 }
 
-/* Slightly reduce the lift to be safe across browsers */
 .g4-featured {
-  transform: translateY(-30%);   /* was -34% */
+  transform: translateY(-30%);   
   position: relative;
-  z-index: 2;                    /* ensure it sits above neighbors */
+  z-index: 2;                    
 }
 
-/* highlight key words in the about-hero */
 .about-hero .blue {
-  color: #0066ff;          /* choose your preferred blue */
+  color: #0066ff;          
   transition: color .3s ease;
 }
 
 .about-hero .blue:hover {
-  color: #3399ff;          /* subtle lighter hover effect */
+  color: #3399ff;          
 }
 
-/* blue accent reused from earlier highlight */
 .reflection .blue {
-  color: #0066ff; /* same blue as your about section */
+  color: #0066ff; 
 }
 
-/* widen reflection text area */
+
 .reflection {
-  max-width: 780px; /* increase width (default is usually 600–640) */
-  margin: 0 auto;   /* keeps it centred */
+  max-width: 780px; 
+  margin: 0 auto;   
   line-height: 1.6;
   font-size: 17px;
 }
 
-/* optional for big screens */
+
 @media (min-width: 1200px) {
   .reflection { max-width: 860px; }
+}
+
+p,
+.about-copy,
+.process-desc {
+  text-align: left;
+}
+
+.reflection {
+  text-align: right;
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #555;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 800px) {
+  p, 
+  .about-copy, 
+  .reflection, 
+  .process-desc {
+    color: #666;
+    font-size: 16px;
+  }
 }

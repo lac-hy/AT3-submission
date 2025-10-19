@@ -149,10 +149,9 @@
 
       <hr class="card-divider">
 
-      <!-- ====================== section 4 ====================== -->
-      <!-- 1:1 black gallery with sideways scrolling -->
+      <!-- ====================== gallery ====================== -->
+
       <section id="section-4" class="gallery4">
-        <!-- top micro labels -->
         <div class="g4-top-left">COMM2753</div>
         <nav class="g4-top-center">
           <a href="#"></a>
@@ -161,22 +160,19 @@
         </nav>
         <a class="g4-top-right" href="#"></a>
 
-        <!-- horizontally scrolling track -->
         <div class="g4-rail-wrap" aria-label="Portrait gallery (horizontal scroll)">
           <div class="g4-rail" role="list">
-            <!-- Replace src with your portraits -->
-            <figure class="g4-card" role="listitem"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200" alt="Portrait 1"></figure>
-            <figure class="g4-card" role="listitem"><img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1200" alt="Portrait 2"></figure>
-            <figure class="g4-card" role="listitem"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200" alt="Portrait 3"></figure>
-            <figure class="g4-card" role="listitem"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200" alt="Portrait 5"></figure>
-            <figure class="g4-card" role="listitem"><img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=1200" alt="Portrait 6"></figure>
-            <figure class="g4-card" role="listitem"><img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=1200" alt="Portrait 7"></figure>
-            <figure class="g4-card" role="listitem"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200" alt="Portrait 8"></figure>
-            <figure class="g4-card" role="listitem"><img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200" alt="Portrait 9"></figure>
+            <figure class="g4-card" role="listitem"><img src="images/ss2.png" alt="Portrait 1"></figure>
+            <figure class="g4-card" role="listitem"><img src="images/" alt="Portrait 2"></figure>
+            <figure class="g4-card" role="listitem"><img src="images/" alt="Portrait 3"></figure>
+            <figure class="g4-card" role="listitem"><img src="images/" alt="Portrait 5"></figure>
+            <figure class="g4-card" role="listitem"><img src="images/" alt="Portrait 6"></figure>
+            <figure class="g4-card" role="listitem"><img src="images/" alt="Portrait 7"></figure>
+            <figure class="g4-card" role="listitem"><img src="images/" alt="Portrait 8"></figure>
+            <figure class="g4-card" role="listitem"><img src="images/" alt="Portrait 9"></figure>
           </div>
         </div>
 
-        <!-- bottom labels -->
         <div class="g4-bottom-left">GALLERY</div>
         <div class="g4-bottom-center">MELBOURNE AS A SOUNDSCAPE ©</div>
         <div class="g4-bottom-right">
@@ -207,13 +203,11 @@
     })();
   </script>
 
-  <!-- new: sideways-scrolling behaviour for Section 4 -->
   <script>
     (function () {
       const rail = document.querySelector('#section-4 .g4-rail');
       if (!rail) return;
 
-      // vertical wheel -> horizontal scroll
       rail.addEventListener('wheel', (e) => {
         if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
           e.preventDefault();
@@ -221,7 +215,6 @@
         }
       }, { passive: false });
 
-      // click & drag
       let down = false, startX = 0, startLeft = 0;
       rail.addEventListener('pointerdown', (e) => {
         down = true;
