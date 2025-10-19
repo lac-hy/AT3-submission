@@ -1,22 +1,20 @@
-/* ================= Base ================= */
+
 *,
 *::before,
 *::after { box-sizing: border-box; }
 
 :root{
-  --canvas: #bfbfbf;     /* outer grey background */
-  --card:   #f4f5f6;     /* very light grey card */
-  --ink:    #101214;     /* near-black text */
-  --muted:  #6b7076;     /* subtle nav label */
-  --maxw:   1160px;      /* inner content width */
-
-  /* About section accents */
+  --canvas: #bfbfbf;     
+  --card:   #f4f5f6;     
+  --ink:    #101214;     
+  --muted:  #6b7076;     
+  --inner: 1060px;
+  --gutter: 48px;
   --about-bg: #f3f4f5;
   --about-ink: #0c0c0c;
   --about-blue: #2b50ff;
 }
 
-/* Page canvas */
 html, body { height: 100%; }
 body{
   margin: 0;
@@ -25,7 +23,6 @@ body{
   background: var(--canvas);
 }
 
-/* ================= Shared Card ================= */
 .frame{
   min-height: 100%;
   display: grid;
@@ -35,29 +32,28 @@ body{
 
 .card{
   width: 100%;
-  max-width: 1280px;               /* total card width */
+  max-width: 1280px;              
   background: var(--card);
-  border-radius: 12px;
+  border-radius: 20px;
   box-shadow: 0 40px 120px rgba(0,0,0,.18);
-  overflow: hidden;                 /* visually connects sections */
+  overflow: hidden;                 
 }
 
-/* Thin divider between sections (optional) */
 .card-divider{
   border: 0;
   height: 1px;
-  background: #e1e3e6;
+  background: #e6e8eb;
   margin: 0;
 }
 
-/* ================= Top Nav ================= */
+/* ================= top navigation ================= */
 .nav{
-  max-width: var(--maxw);
+  width: min(100%, var(--inner));
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 16px 8px 28px;
+  padding: 16px var(--gutter) 28px;
 }
 
 .brand{
@@ -82,10 +78,10 @@ body{
 
 .right{
   display: flex;
-  flex-direction: column; /* stack vertically */
-  align-items: flex-end;  /* right align */
+  flex-direction: column;          
+  align-items: flex-end;           
   gap: 8px;
-  margin-top: 50px;
+  margin-top: 12px;                
 }
 
 .muted{
@@ -111,16 +107,14 @@ body{
 
 .ext{ font-size: 14px; transform: translateY(-1px); }
 
-/* ================= Hero ================= */
-/* NOTE: renamed .hero -> .hero-section to match your HTML */
+/* ================= section 1 ================= */
 .hero-section{
-  max-width: var(--maxw);
+  width: min(100%, var(--inner));
   margin: 0 auto;
   text-align: center;
-  padding: 24px 8px 56px;
+  padding: 24px var(--gutter) 56px;
 }
 
-/* Giant 3-line title (locked lines) */
 .hero-title{
   margin: 44px 0 18px;
   font-weight: 900;
@@ -134,7 +128,6 @@ body{
   white-space: nowrap;
 }
 
-/* Micro captions under headline */
 .micro{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -153,7 +146,6 @@ body{
 .micro-left{ justify-self: center; }
 .micro-right{ justify-self: center; }
 
-/* Hero image inside the card */
 .portrait{
   margin: 60px auto;
   width: 100%;
@@ -162,7 +154,7 @@ body{
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0,0,0,.15);
-  background: #000;  /* fallback */
+  background: #000; 
 }
 .portrait img{
   width: 100%;
@@ -171,24 +163,24 @@ body{
   display: block;
 }
 
-/* ================= Section 2 — About ================= */
+/* ================= section 2 ================= */
 .about-slab{
   position: relative;
-  background: var(--about-bg);  /* very subtle shift */
+  background: var(--about-bg);
   color: var(--about-ink);
-  padding: 56px 48px 56px;
+  padding: 56px 0;
 }
 
 .about-grid{
-  max-width: 1240px;
+  width: min(100%, var(--inner));
   margin: 0 auto;
+  padding: 0 var(--gutter);
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
+  grid-template-columns: 1.6fr 1fr; 
   column-gap: 48px;
   row-gap: 40px;
 }
 
-/* Left: big statement */
 .about-hero{
   font-weight: 700;
   font-size: clamp(36px, 6.2vw, 64px);
@@ -201,7 +193,6 @@ body{
   text-decoration: none;
 }
 
-/* Right stacks */
 .about-contact{
   justify-self: end;
   text-align: right;
@@ -230,7 +221,6 @@ body{
   color: #3b3f44;
 }
 
-/* Bottom image strip */
 .about-strip{
   position: relative;
   width: 100%;
@@ -246,7 +236,81 @@ body{
   transform: translateY(-10%);
 }
 
-/* ================= Responsive ================= */
+/* ================= section 3 ================= */
+.section-inner{
+  width: min(100%, var(--inner));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.process{
+  background: var(--card);
+  color: var(--ink);
+  padding: 56px 0 96px;
+  border-top: 1px solid #e6e8eb;
+}
+
+.process-grid{
+  display: grid;
+  row-gap: 96px;
+}
+
+.process-item{
+  display: grid;
+  grid-template-columns: 180px 340px minmax(0,1fr);
+  column-gap: 40px;
+  align-items: start;
+}
+
+.process-num{
+  font-size: clamp(84px, 9.5vw, 128px);
+  font-weight: 800;
+  line-height: .9;
+  letter-spacing: .005em;
+  margin-top: 4px; 
+}
+
+.process-head{ grid-column: 2; }
+.process-title{
+  font-weight: 800;
+  font-size: 28px;
+  margin: 6px 0 6px;
+  letter-spacing: -0.01em;
+}
+.process-sub{
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #666b70;
+}
+
+.process-body{ grid-column: 3; }
+.process-desc{
+  font-size: 16px;
+  line-height: 1.65;
+  color: #3a3c3f;
+  max-width: 740px;
+}
+
+.process-item{
+  border-bottom: 1px solid #e6e8eb;
+  padding-bottom: 64px;
+}
+.process-item:last-child{ border-bottom: none; }
+
+/* ========= animations ========= */
+.reveal{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 560ms cubic-bezier(.2,.7,.2,1),
+              transform 560ms cubic-bezier(.2,.7,.2,1);
+  will-change: opacity, transform;
+}
+.reveal.in{ opacity: 1; transform: none; }
+.reveal[data-reveal="left"]{ transform: translateX(-28px); }
+.reveal[data-reveal="up"]  { transform: translateY(20px); }
+.reveal[data-reveal="fade"]{ transform: none; }
+
+/* ================= responsive elements ================= */
 @media (max-width: 900px){
   .nav{
     grid-template-columns: 1fr auto;
@@ -265,4 +329,166 @@ body{
   }
   .about-copy,
   .about-meta{ grid-column: 1; max-width: 640px; }
+
+  .process-item{
+    grid-template-columns: 100px 1fr;
+    row-gap: 10px;
+  }
+  .process-head{ grid-column: 2; }
+  .process-body{ grid-column: 2; }
+  .process-num{ font-size: 96px; }
+}
+
+/* ========== SECTION 4: Horizontal Gallery (black, 1:1) ========== */
+:root{
+  --g4-bg: #0a0a0a;
+  --g4-fg: #f3f3f3;
+  --g4-dim:#bdbdbd;
+  --g4-rail-h: 220px;
+  --g4-gap: 18px;
+  --g4-pad-x: 56px;
+}
+
+/* full-bleed inside the card area */
+.gallery4{
+  position: relative;
+  min-height: 540px;
+  background: var(--g4-bg);
+  color: var(--g4-fg);
+  overflow: hidden;
+  padding: 42px var(--g4-pad-x) 56px;
+}
+
+/* top micro labels */
+.g4-top-left,
+.g4-top-right,
+.g4-top-center a{
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--g4-dim);
+  text-decoration: none;
+}
+.g4-top-left{ position:absolute; top:32px; left:var(--g4-pad-x); }
+.g4-top-right{ position:absolute; top:32px; right:var(--g4-pad-x); }
+.g4-top-center{
+  position:absolute; top:32px; left:50%; transform:translateX(-50%);
+  display:flex; gap:22px;
+}
+.g4-top-center a:hover{ opacity:.7; }
+
+/* bottom labels */
+.g4-bottom-left,
+.g4-bottom-center,
+.g4-bottom-right{
+  position:absolute; bottom:28px; line-height:1.4;
+}
+.g4-bottom-left{ left:var(--g4-pad-x); font-size: 24px; letter-spacing:.02em; }
+.g4-bottom-center{ left:50%; transform:translateX(-50%); font-size:12px; color: var(--g4-dim); }
+.g4-bottom-right{ right:var(--g4-pad-x); text-align:right; font-size:12px; color: var(--g4-dim); }
+
+/* rail */
+.g4-rail-wrap{
+  position:relative;
+  margin-top: 120px;
+  height: calc(var(--g4-rail-h) + 140px);
+  display:flex; align-items:center;
+  cursor: grab;
+}
+.g4-rail{
+  display:flex;
+  gap: var(--g4-gap);
+  height: var(--g4-rail-h);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.g4-rail::-webkit-scrollbar{ height: 6px; }
+.g4-rail::-webkit-scrollbar-thumb{ background:#2b2b2b; }
+
+/* cards */
+.g4-card{
+  flex: 0 0 auto;
+  width: calc(var(--g4-rail-h) * 0.75);
+  height: var(--g4-rail-h);
+  background:#111;
+  scroll-snap-align: start;
+  position:relative;
+  overflow:hidden;
+}
+.g4-card img{
+  width:100%; height:100%; object-fit:cover; filter: grayscale(100%);
+  display:block;
+}
+
+/* featured */
+.g4-featured{
+  width: calc(var(--g4-rail-h) * 0.9);
+  height: calc(var(--g4-rail-h) * 1.05);
+  transform: translateY(-34%);
+  outline: 1px solid rgba(255,255,255,.55);
+  box-shadow: 0 10px 22px rgba(0,0,0,.55);
+  background:#161616;
+}
+.g4-featured img{ filter:none; }
+
+.g4-featured-caption{
+  position:absolute; left:-2px; right:-2px; top:-34px;
+  display:flex; flex-direction:column; gap:10px; align-items:flex-start;
+  pointer-events:none;
+}
+.g4-featured-name{
+  font-size:10px; letter-spacing:.12em; color:var(--g4-dim);
+}
+.g4-featured-role{
+  position:absolute; left:-2px; bottom:-44px;
+  font-size:11px; letter-spacing:.06em; line-height:1.4;
+  color: var(--g4-fg);
+  text-transform:uppercase;
+}
+
+/* hover lift */
+.g4-card:not(.g4-featured):hover{
+  transform: translateY(-6px);
+  transition: transform .25s ease;
+}
+
+/* responsive */
+@media (max-width: 900px){
+  :root{ --g4-pad-x: 22px; --g4-rail-h: 180px; }
+  .g4-bottom-left{ font-size:20px; }
+}
+@media (max-width: 600px){
+  :root{ --g4-rail-h: 160px; }
+  .g4-featured{ transform: translateY(-28%); }
+}
+
+/* Fix: let the featured card rise above the strip without clipping */
+.gallery4 { 
+  overflow: visible;             /* was hidden */
+  padding-top: 64px;             /* keeps the same visual spacing */
+}
+
+/* Give the wrap extra headroom so the lifted card never hits the top edge */
+.g4-rail-wrap {
+  height: calc(var(--g4-rail-h) + 240px);  
+  margin-top: 96px;                        
+}
+
+/* Slightly reduce the lift to be safe across browsers */
+.g4-featured {
+  transform: translateY(-30%);   /* was -34% */
+  position: relative;
+  z-index: 2;                    /* ensure it sits above neighbors */
+}
+
+/* highlight key words in the about-hero */
+.about-hero .blue {
+  color: #0066ff;          /* choose your preferred blue */
+  transition: color .3s ease;
+}
+
+.about-hero .blue:hover {
+  color: #3399ff;          /* subtle lighter hover effect */
 }
