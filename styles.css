@@ -492,3 +492,21 @@ body{
 .about-hero .blue:hover {
   color: #3399ff;          /* subtle lighter hover effect */
 }
+
+/* blue accent reused from earlier highlight */
+.reflection .blue {
+  color: #0066ff; /* same blue as your about section */
+}
+
+/* widen reflection text area */
+.reflection {
+  max-width: 780px; /* increase width (default is usually 600–640) */
+  margin: 0 auto;   /* keeps it centred */
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+/* optional for big screens */
+@media (min-width: 1200px) {
+  .reflection { max-width: 860px; }
+}
