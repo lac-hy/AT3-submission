@@ -268,7 +268,8 @@ body{
   font-weight: 800;
   line-height: .9;
   letter-spacing: .005em;
-  margin-top: 4px; 
+  margin-top: 4px;
+   
 }
 
 .process-head{ grid-column: 2; }
